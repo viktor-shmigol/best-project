@@ -1,3 +1,3 @@
-@TasksCtrl = ['$scope', ($scope) ->
-  alert(2)
+@TasksCtrl = ['$scope', 'Task', ($scope, Task) ->
+  $scope.tasks = Task.query()
 ]
