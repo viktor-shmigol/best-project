@@ -1,0 +1,15 @@
+'use strict';
+
+angular.module('TaskManager').config([
+  '$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+    $routeProvider
+      .when('/tasks', {
+        templateUrl: '<%= asset_path('tasks/index.slim') %>',
+        controller: TasksCtrl
+      })
+      .otherwise({ redirectTo: '/tasks' });
+  }
+]).config(["$httpProvider", function($httpProvider) {
+    $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
+  }
+])
