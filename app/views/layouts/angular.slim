@@ -1,5 +1,5 @@
 doctype html
-html
+html ng-app="TaskManager"
   head
     title TaskManager
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
@@ -7,3 +7,4 @@ html
     = csrf_meta_tags
   body
     = yield
+    div ng-view=""
