@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-  has_many :tasks
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  has_many :user_boards
+  has_many :boards, through: :user_boards
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 end

@@ -17,6 +17,8 @@
 //= require angular-route
 //= require angular-resource
 //= require angular-animate
+//= require angular-plugins
+//= require jquery-plugins
 //= require_tree ./angular/
 //= require_tree .
 

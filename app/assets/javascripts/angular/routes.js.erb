@@ -1,13 +1,17 @@
 'use strict';
 
-angular.module('TaskManager').config([
+angular.module('BestProject').config([
   '$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider
+      .when('/boards', {
+        templateUrl: '<%= asset_path('boards/index.slim') %>',
+        controller: BoardsCtrl
+      })
       .when('/tasks', {
         templateUrl: '<%= asset_path('tasks/index.slim') %>',
         controller: TasksCtrl
       })
-      .otherwise({ redirectTo: '/tasks' });
+      .otherwise({ redirectTo: '/boards' });
   }
 ]).config(["$httpProvider", function($httpProvider) {
     $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')

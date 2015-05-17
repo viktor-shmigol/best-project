@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     end
 
     resources :tasks
+    resources :boards
   end
 end

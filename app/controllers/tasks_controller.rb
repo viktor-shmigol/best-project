@@ -1,14 +1,36 @@
 class TasksController < ApplicationController
-  before_action :all_tasks, only: :index
+  before_action :find_task, only: [:update, :destroy]
+  before_action :task, only: :create
 
   def index
-    render json: ActiveModel::ArraySerializer.new(@tasks,
+    render json: ActiveModel::ArraySerializer.new(Task.by_task(params[:task_id]),
                                                   each_serializer: TaskSerializer), status: 200
+  end
+
+  def create
+    if @task.update(task_params)
+      render json: @task, status: 200
+    else
+      render json: { status: :error, error: @task.errors.messages }, status: 422
+    end
+  end
+
+  def destroy
+    @task.destroy
+    head(200)
   end
 
   private
 
-  def all_tasks
-    @tasks = current_user.tasks
+  def find_task
+    @task = Task.find(params[:id])
+  end
+
+  def task
+    @task = Task.new
+  end
+
+  def task_params
+    params.require(:task).permit(:name)
   end
 end
