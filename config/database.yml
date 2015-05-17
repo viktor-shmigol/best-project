@@ -13,5 +13,7 @@ test:
   database: task-manager-test
 
 production:
-  <<: *default
+  adapter: postgresql
   database: task-manager
+  pool: 5
+  timeout: 5000
