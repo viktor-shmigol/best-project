@@ -1,19 +1,10 @@
-h1
-  | My boards
-form ng-submit='addNew()'
-  table
-    tr
-      th
-        | Title
-      th
-    tr
-      td
-        input ng-model='newBoard.name' name='name' type='text' ng-required='true'
-      td
-        button.btn.btn-success type='submit'
-          | Add
-ul
-  li ng-repeat='board in boards'
-    a href='#'
-      | {{ board.name }}
-    span.glyphicon.glyphicon-trash ng-click='delete(board.id, $index)'
+.row
+  h2
+    | {{ board.name }}
+.row ng-controller='TaskListsCtrl'
+  .list-container ng-repeat='list in taskLists'
+    | {{ list.name }}
+    button ng-click='delete(list.id, $index)' type='button'
+      span.glyphicon.glyphicon-trash
+  button.btn.btn-success bs-aside='aside' data-animation='am-slide-left' data-container='body' data-placement='left' data-template='#{asset_path('task_lists/new.slim')}' type='button'
+    | Add a list

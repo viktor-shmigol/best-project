@@ -5,3 +5,7 @@ angular.module('BestProject').factory 'Task', ['$resource', ($resource) ->
 angular.module('BestProject').factory 'Board', ['$resource', ($resource) ->
   $resource('/boards/:id', {id: '@id'}, {update: {method: 'PUT'}})
 ]
+
+angular.module('BestProject').factory 'TaskList', ['$resource', ($resource) ->
+  $resource('/task_lists/:id', {id: '@id'}, {update: {method: 'PUT'}})
+]

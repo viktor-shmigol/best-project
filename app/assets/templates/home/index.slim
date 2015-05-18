@@ -1,0 +1,6 @@
+h1
+  | My boards
+ul
+  li ng-repeat='board in boards'
+    a href='#/boards/{{board.id}}'
+      | {{ board.name }}

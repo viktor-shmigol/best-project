@@ -1,7 +1,10 @@
-@BoardsCtrl = ['$scope', 'Board', ($scope, Board) ->
+@BoardsCtrl = ['$scope', 'Board', '$routeParams', ($scope, Board, $routeParams) ->
+  $scope.boardId = $routeParams.boardId
   $scope.newBoard = {}
 
-  $scope.boards = Board.query()
+  $scope.boards = Board.query (response) ->
+    $.each response, ->
+      $scope.board = @ if @id == parseInt($scope.boardId)
 
   $scope.addNew = ->
     board = Board.save($scope.newBoard,

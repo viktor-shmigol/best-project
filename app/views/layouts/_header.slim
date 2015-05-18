@@ -1,7 +1,25 @@
-- if user_signed_in?
-  = current_user.email
-  = link_to 'Edit profile', edit_user_registration_path, class: 'navbar-link'
-  = link_to "Sign out", destroy_user_session_path, method: :delete, class: 'navbar-link'
-- else
-  = link_to "Sign up", new_user_registration_path, class: 'navbar-link'
-  = link_to "Sign in", new_user_session_path, class: 'navbar-link'
+nav.navbar.navbar-default bs-navbar='' role='navigation'
+  .navbar-header
+    a.navbar-brand href='#'
+      | Best project
+  ul.nav.navbar-nav
+    li  data-match-route='/$'
+      a href='#/'
+        | Home
+    li data-match-route='/boards'
+      a href='/#/boards'
+        | Boards
+  ul.nav.navbar-nav.navbar-right
+    - if user_signed_in?
+      li
+        a
+          = current_user.email
+      li
+        = link_to 'Edit profile', edit_user_registration_path, class: 'navbar-link'
+      li
+        = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'navbar-link'
+    - else
+      li
+        = link_to 'Sign up', new_user_registration_path, class: 'navbar-link'
+      li
+        = link_to 'Sign in', new_user_session_path, class: 'navbar-link'

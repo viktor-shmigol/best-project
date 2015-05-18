@@ -4,4 +4,9 @@ app = angular.module 'BestProject', [
   'ngAnimate'
   'angular.filter'
   'mgcrea.ngStrap'
+  'ui.sortable'
 ]
+
+app.config(['$controllerProvider', ($controllerProvider) ->
+  $controllerProvider.allowGlobals()
+])

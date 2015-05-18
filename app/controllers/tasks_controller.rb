@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   before_action :task, only: :create
 
   def index
-    render json: ActiveModel::ArraySerializer.new(Task.by_task(params[:task_id]),
+    render json: ActiveModel::ArraySerializer.new(Task.by_board(params[:board_id]),
                                                   each_serializer: TaskSerializer), status: 200
   end
 
@@ -31,6 +31,8 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name)
+    params.require(:task).permit(:title,
+                                 :board_id,
+                                 :target_position)
   end
 end

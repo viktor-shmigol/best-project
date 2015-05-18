@@ -1,0 +1,12 @@
+form ng-submit='addNew()'
+  table
+    tr
+      th
+        | Title
+      th
+    tr
+      td
+        input ng-model='newBoard.name' name='name' type='text' ng-required='true'
+      td
+        button.btn.btn-success type='submit'
+          | Add

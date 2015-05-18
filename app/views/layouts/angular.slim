@@ -6,7 +6,7 @@ html ng-app="BestProject"
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-  = render 'layouts/header'
+    = render 'layouts/header'
   .container
     = yield
     div ng-view=""
