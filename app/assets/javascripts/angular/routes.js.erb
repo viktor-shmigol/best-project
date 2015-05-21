@@ -7,10 +7,6 @@ angular.module('BestProject').config([
         templateUrl: '<%= asset_path('home/index.slim') %>',
         controller: HomeCtrl
       })
-      .when('/boards', {
-        templateUrl: '<%= asset_path('boards/new.slim') %>',
-        controller: BoardsCtrl
-      })
       .when('/boards/:boardId', {
         templateUrl: '<%= asset_path('boards/index.slim') %>',
         controller: BoardsCtrl

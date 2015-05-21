@@ -1,10 +1,15 @@
 .row
-  h2
-    | {{ board.name }}
-.row ng-controller='TaskListsCtrl'
-  .list-container ng-repeat='list in taskLists'
-    | {{ list.name }}
-    button ng-click='delete(list.id, $index)' type='button'
-      span.glyphicon.glyphicon-trash
-  button.btn.btn-success bs-aside='aside' data-animation='am-slide-left' data-container='body' data-placement='left' data-template='#{asset_path('task_lists/new.slim')}' type='button'
-    | Add a list
+  .col-lg-12
+    h2
+      | {{ board.name }}
+.row.board-container ng-controller='TaskListsCtrl'
+  .col-lg-12
+    .list-container ng-repeat='list in taskLists'
+      | {{ list.name }}
+      .task-list id='{{list.id}}' ng-model="tasklist[list.id]" ui-sortable="sortableOptions"
+        .task ng-repeat="task in tasklist[list.id]" id='{{task.id}}'
+          |{{task.title}}
+        button.btn.btn-success.add-task bs-aside='aside' data-animation='am-slide-left' data-container='body' data-placement='left' data-template='#{asset_path('tasks/new.slim')}' type='button'
+          | add new task
+    button.btn.btn-success bs-aside='aside' data-animation='am-slide-left' data-container='body' data-placement='left' data-template='#{asset_path('task_lists/new.slim')}' type='button'
+      | Add a list

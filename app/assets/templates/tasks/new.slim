@@ -1,0 +1,23 @@
+.modal role='dialog' tabindex='-1' ng-controller='TasksCtrl'
+  .modal-dialog
+    .modal-content
+      .modal-header ng-show='title'
+        button.close ng-click='$hide()' type='button'  &times;
+        h4.modal-title ng-bind-html='title'
+          | Add new Task
+      .modal-body
+        form ng-submit='addNew(list.id)'
+          table
+            tr
+              th
+                | Title
+              th
+            tr
+              td
+                input ng-model='newTask.title' name='title' type='text' ng-required='true'
+          .modal-footer
+            button.btn.btn-primary type='submit' ng-click='$hide()'
+              | Add
+            button.btn.btn-danger ng-click='$hide()' type='button'
+              | Cancel
+

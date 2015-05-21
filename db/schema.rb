@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20150517184326) do
     t.string   "title",        limit: 255
     t.date     "due_date"
     t.integer  "task_list_id", limit: 4
+    t.integer  "board_id",     limit: 4
     t.string   "description",  limit: 255
     t.string   "status",       limit: 255
     t.integer  "position",     limit: 4

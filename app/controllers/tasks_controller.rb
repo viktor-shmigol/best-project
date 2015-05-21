@@ -20,6 +20,14 @@ class TasksController < ApplicationController
     head(200)
   end
 
+  def update
+    if @task.update(task_params)
+      render json: TaskSerializer.new(@task), status: 201
+    else
+      render json: {status: :error, error: @task.errors.messages}, status: 422
+    end
+  end
+
   private
 
   def find_task
@@ -33,6 +41,7 @@ class TasksController < ApplicationController
   def task_params
     params.require(:task).permit(:title,
                                  :board_id,
+                                 :task_list_id,
                                  :target_position)
   end
 end

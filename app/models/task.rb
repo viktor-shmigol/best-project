@@ -4,5 +4,5 @@ class Task < ActiveRecord::Base
 
   acts_as_list scope: :task_list, add_new_at: :top
 
-  scope :by_board, -> (id) { where(id: id) if id }
+  scope :by_board, -> (id) { where(board_id: id) if id }
 end

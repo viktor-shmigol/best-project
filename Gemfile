@@ -29,6 +29,7 @@ gem 'bootstrap-sass'
 gem 'devise-bootstrap-views'
 gem 'active_model_serializers'
 gem 'acts_as_list'
+gem 'jquery-ui-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

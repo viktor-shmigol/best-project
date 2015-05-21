@@ -1,8 +1,35 @@
 .list-container {
+  position: relative;
+  border-radius: 5px;
+  background-color: #f8f8f8;
   display: block;
   float: left;
-  width: 200px;
+  width: 270px;
   min-height: 150px;
-  border: 1px solid black;
+  border: 1px solid #e7e7e7;
   margin-right: 5px;
+}
+
+.task-list {
+  padding: 5px;
+  min-width:200px;
+  min-height:50px;
+}
+
+.task {
+  min-height: 60px;
+  background-color: white;
+  padding: 5px 10px;
+  margin: 5px 0;
+  border: 1px solid #e7e7e7;
+  border-radius: 5px;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: center;
+  cursor: move;
+}
+
+.add-task {
+  position: absolute;
+  bottom:10px;
 }
