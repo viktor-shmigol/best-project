@@ -14,6 +14,8 @@ test:
 
 production:
   adapter: postgresql
-  database: task-manager
+  database: task_manager
+  username: dbpostgres
+  password: postgres
   pool: 5
   timeout: 5000
