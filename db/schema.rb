@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150517184326) do
+ActiveRecord::Schema.define(version: 20150521203748) do
 
   create_table "boards", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150517184326) do
     t.integer  "board_id",   limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "position",   limit: 4
   end
 
   create_table "tasks", force: :cascade do |t|

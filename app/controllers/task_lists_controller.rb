@@ -19,6 +19,14 @@ class TaskListsController < ApplicationController
     head(200)
   end
 
+  def update
+    if @task_list.update(task_list_params)
+      render json: @task_list, status: 201
+    else
+      render json: {status: :error, error: @task_list.errors.messages}, status: 422
+    end
+  end
+
   private
 
   def find_task_list
@@ -30,6 +38,6 @@ class TaskListsController < ApplicationController
   end
 
   def task_list_params
-    params.require(:task_list).permit(:name, :board_id)
+    params.require(:task_list).permit(:name, :board_id, :target_position)
   end
 end

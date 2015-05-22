@@ -12,7 +12,7 @@
       () ->
         $scope.taskLists.push(taskList)
         $scope.tasklist[taskList.id] = {}
-        $scope.newTaskList = {}
+        $scope.newTaskList.name = ''
     )
 
   $scope.delete = (taskList_id, index) ->
@@ -35,13 +35,23 @@
       $.each response, ->
         $scope.tasklist[@task_list_id] = $filter('filter')(response, task_list_id: @task_list_id)
 
-  $scope.sortableOptions =
+  $scope.taskSortableOptions =
+    animation: 200
     placeholder: 'app-ph'
     connectWith: '.task-list'
     update: (e, ui) ->
-      console.log(ui.item.index())
+      console.log(e)
+      console.log ui
     receive: (e, ui) ->
       id = $(e.target).attr('id')
       task_id = $(ui.item).attr('id')
       Task.update(id: task_id, { task_list_id: id })
+
+  $scope.listSortableOptions =
+    animation: 200
+    connectWith: '.list-sortable'
+    update: (e, ui) ->
+      id = $(ui.item).attr('id').replace('list_', '')
+      position = ui.item.index() + 1
+      TaskList.update(id: id, task_list: { target_position: position })
 ]

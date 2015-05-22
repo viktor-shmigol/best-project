@@ -339,7 +339,6 @@ angular.module('ui.sortable', [])
             });
 
           } else {
-            $log.info('ui.sortable: ngModel not provided!', element);
           }
 
           // Create sortable

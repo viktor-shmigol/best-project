@@ -3,10 +3,10 @@
     h2
       | {{ board.name }}
 .row.board-container ng-controller='TaskListsCtrl'
-  .col-lg-12
-    .list-container ng-repeat='list in taskLists'
+  .col-lg-12.list-sortable  ui-sortable="listSortableOptions"
+    .list-container ng-repeat='list in taskLists | orderBy: "position"' id='list_{{list.id}}'
       | {{ list.name }}
-      .task-list id='{{list.id}}' ng-model="tasklist[list.id]" ui-sortable="sortableOptions"
+      .task-list id='{{list.id}}' ui-sortable="taskSortableOptions"
         .task ng-repeat="task in tasklist[list.id]" id='{{task.id}}'
           |{{task.title}}
         button.btn.btn-success.add-task bs-aside='aside' data-animation='am-slide-left' data-container='body' data-placement='left' data-template='#{asset_path('tasks/new.slim')}' type='button'
