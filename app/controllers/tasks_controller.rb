@@ -39,9 +39,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title,
-                                 :board_id,
-                                 :task_list_id,
-                                 :target_position)
+    params.require(:task).permit!
   end
 end

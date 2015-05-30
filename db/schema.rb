@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150521203748) do
     t.datetime "updated_at",             null: false
   end
 
-  create_table "task_lists", force: :cascade do |t|
+  create_table "lists", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.integer  "board_id",   limit: 4
     t.datetime "created_at",             null: false
@@ -28,13 +28,13 @@ ActiveRecord::Schema.define(version: 20150521203748) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "title",        limit: 255
+    t.string   "title",       limit: 255
     t.date     "due_date"
-    t.integer  "task_list_id", limit: 4
-    t.integer  "board_id",     limit: 4
-    t.string   "description",  limit: 255
-    t.string   "status",       limit: 255
-    t.integer  "position",     limit: 4
+    t.integer  "list_id",     limit: 4
+    t.integer  "board_id",    limit: 4
+    t.string   "description", limit: 255
+    t.string   "status",      limit: 255
+    t.integer  "position",    limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end

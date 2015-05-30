@@ -1,6 +1,6 @@
-class CreateTaskLists < ActiveRecord::Migration
+class CreateLists < ActiveRecord::Migration
   def change
-    create_table :task_lists do |t|
+    create_table :lists do |t|
       t.string :name
       t.integer :board_id
 

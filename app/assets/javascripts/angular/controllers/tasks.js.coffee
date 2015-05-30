@@ -5,11 +5,19 @@
     board_id: $scope.boardId
   }
 
-  $scope.addNew = (list_id) ->
-    $scope.newTask.task_list_id = list_id
+  $scope.addNew = (listId) ->
+    $scope.newTask.list_id = listId
     task = Task.save($scope.newTask,
       () ->
-        $scope.tasklist[list_id].push(task)
+        $scope.tasks[listId].push(task)
         $scope.newTask = {}
     )
+
+  $scope.delete = (taskId, index, listId) ->
+    if confirm('Впевнений?')
+      Task.delete
+        id: taskId
+      , (success) ->
+        $scope.tasks[listId].splice(index,1)
+        return
 ]

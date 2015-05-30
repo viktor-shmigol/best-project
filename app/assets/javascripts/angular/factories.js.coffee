@@ -6,6 +6,6 @@ angular.module('BestProject').factory 'Board', ['$resource', ($resource) ->
   $resource('/boards/:id', {id: '@id'}, {update: {method: 'PUT'}})
 ]
 
-angular.module('BestProject').factory 'TaskList', ['$resource', ($resource) ->
-  $resource('/task_lists/:id', {id: '@id'}, {update: {method: 'PUT'}})
+angular.module('BestProject').factory 'List', ['$resource', ($resource) ->
+  $resource('/lists/:id', {id: '@id'}, {update: {method: 'PUT'}})
 ]

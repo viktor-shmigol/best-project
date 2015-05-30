@@ -11,6 +11,6 @@ Rails.application.routes.draw do
 
     resources :tasks
     resources :boards
-    resources :task_lists
+    resources :lists
   end
 end

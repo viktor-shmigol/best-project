@@ -12,10 +12,10 @@
  *
  *= require_tree .
  *= require_self
- *= require devise_bootstrap_views
- *= require jquery-ui/sortable
  */
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'angular-plugins';
+@import 'devise_bootstrap_views';
+@import 'jquery-ui/sortable';

@@ -1,6 +1,6 @@
-class TaskList < ActiveRecord::Base
+class List < ActiveRecord::Base
   belongs_to :board
-  has_many :tasks, -> { order(position: :desc) }, dependent: :destroy
+  has_many :tasks, dependent: :destroy
 
   validates :name, presence: true
 
@@ -10,5 +10,9 @@ class TaskList < ActiveRecord::Base
 
   def target_position=(value)
     insert_at(value.to_i)
+  end
+
+  def assigned
+    tasks.any?
   end
 end
