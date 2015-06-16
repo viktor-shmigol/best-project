@@ -10,6 +10,7 @@
     task = Task.save($scope.newTask,
       () ->
         $scope.tasks[listId].push(task)
+        $scope.taskModal.hide()
         $scope.newTask = {}
     )
 

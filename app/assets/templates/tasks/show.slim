@@ -1,0 +1,14 @@
+.modal role='dialog' tabindex='-1'
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close ng-click='$hide()' type='button'  &times;
+        h4
+          | {{ task.title }}
+      .modal-body
+        label
+          | Due date
+        | {{ task.due_date }}
+        label
+          | Description
+        | {{ task.description }}

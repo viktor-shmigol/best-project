@@ -1,22 +1,23 @@
 .modal role='dialog' tabindex='-1' ng-controller='TasksCtrl'
   .modal-dialog
     .modal-content
-      .modal-header ng-show='title'
+      .modal-header
         button.close ng-click='$hide()' type='button'  &times;
-        h4.modal-title ng-bind-html='title'
+        h4
           | Add new Task
       .modal-body
         form ng-submit='addNew(list.id)'
-          table
-            tr
-              th
-                | Title
-              th
-            tr
-              td
-                input ng-model='newTask.title' name='title' type='text' ng-required='true'
+          label
+            | Title
+          input.form-control ng-model='newTask.title' name='title' type='text' ng-required='true'
+          label
+            | Due date
+          input.form-control ui-date='' ng-model='newTask.due_date' name='due_date' type='text'
+          label
+            | Description
+          textarea.form-control ng-model='newTask.description' name='description' type='textarea'
           .modal-footer
-            button.btn.btn-primary type='submit' ng-click='$hide()'
+            button.btn.btn-primary type='submit'
               | Add
             button.btn.btn-danger ng-click='$hide()' type='button'
               | Cancel

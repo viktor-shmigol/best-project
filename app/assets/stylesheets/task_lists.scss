@@ -1,20 +1,13 @@
-.list-container {
-  cursor: grab;
-  position: relative;
-  border-radius: 5px;
-  background-color: #f8f8f8;
-  display: block;
-  float: left;
-  width: 270px;
-  min-height: 150px;
-  border: 1px solid #e7e7e7;
-  margin-right: 5px;
-}
-
 .task-list {
-  padding: 5px;
-  min-width:200px;
-  min-height:50px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 0 4px;
+  padding: 0 4px;
+  z-index: 1;
 }
 
 .task {
