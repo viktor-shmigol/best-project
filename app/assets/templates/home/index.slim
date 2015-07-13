@@ -2,7 +2,7 @@ h1
   | My boards
 div ng-controller='BoardsCtrl'
   ng-include src='"#{asset_path('boards/new.slim')}"'
-  ul
+  ul.board-list
     li ng-repeat='board in boards'
       a href='#/boards/{{board.id}}'
         | {{ board.name }}

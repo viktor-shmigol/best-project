@@ -28,3 +28,39 @@
 }
 
 .glyphicon { cursor: pointer; }
+
+.board-list {
+  list-style: none;
+
+  li {
+    float: left;
+    width: 25%;
+    box-sizing: border-box;
+    position: relative;
+  }
+}
+
+.board-list a {
+  color: #777;
+  left: -39px;
+  text-decoration: none;
+  background-color: #f8f8f8;
+  height: 90px;
+  margin: 0 16px 16px 0;
+  font-size: 16px;
+  line-height: 22px;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 8px;
+  display: block;
+  font-weight: 700;
+  min-height: 18px;
+  padding: 8px 12px;
+  position: relative;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+    color: #777;
+  }
+}
