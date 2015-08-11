@@ -12,7 +12,7 @@
     $scope.lists = List.query
       board_id: $scope.boardId
       (response) ->
-        emptyList = $filter('filter')(response, {assigned: false})
+        emptyList = $filter('filter')(response, { assigned: false })
         $.each emptyList, ()->
           $scope.tasks[@id] = []
 
@@ -31,7 +31,6 @@
         , (success) ->
           $scope.lists.splice(index,1)
           return
-
 
     $scope.newTask = {
       board_id: $scope.boardId

@@ -1,15 +1,19 @@
 .list-container {
+  float: left;
+  width: 270px;
+  max-height: 100%;
+  margin-right: 5px;
   cursor: grab;
-  position: relative;
+}
+
+.list-body {
+  margin-bottom: 5px;
+  padding: 5px;
+  min-height: 155px;
   border-radius: 5px;
   background-color: #f8f8f8;
   display: block;
-  float: left;
-  width: 270px;
-  min-height: 150px;
-  max-height: 100%;
   border: 1px solid #e7e7e7;
-  margin-right: 5px;
 }
 
 .list-header {
@@ -17,25 +21,5 @@
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  padding: 8px 34px 8px 10px;
-  position: relative;
   min-height: 19px;
-}
-
-.list-footer {
-  cursor: pointer;
-  border-radius: 0 0 3px 3px;
-  color: #8c8c8c;
-  display: block;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  padding: 8px 10px;
-  position: relative;
-  text-decoration: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }

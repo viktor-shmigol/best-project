@@ -10,9 +10,9 @@ app = angular.module 'BestProject', [
   'angular-loading-bar'
 ]
 
-app.config(['$controllerProvider', ($controllerProvider) ->
+app.config ['$controllerProvider', ($controllerProvider) ->
   $controllerProvider.allowGlobals()
-])
+]
 
 app.config ['cfpLoadingBarProvider', (cfpLoadingBarProvider) ->
     cfpLoadingBarProvider.latencyThreshold = 10

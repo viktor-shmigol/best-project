@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150521203748) do
+ActiveRecord::Schema.define(version: 20150811202410) do
 
   create_table "boards", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20150521203748) do
     t.integer  "position",    limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "label",       limit: 255, default: "Bug"
+    t.integer  "points",      limit: 4
   end
 
   create_table "user_boards", force: :cascade do |t|

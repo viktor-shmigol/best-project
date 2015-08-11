@@ -14,8 +14,9 @@ angular.module('BestProject').factory 'taskDecorator', [ 'Task', '$modal', (Task
         task_id = $(ui.item).attr('id').replace('task_', '')
         Task.update(id: task_id, task: { list_id: id })
 
-    $scope.taskModalShow = (url, list) ->
-      $scope.list = list
+    $scope.taskModalShow = (url, item) ->
+      $scope.list = item
+      $scope.task = item
       $scope.taskModal = $modal(scope: $scope, template: url, show: false, animation: 'am-fade-and-scale')
       $scope.taskModal.$promise.then $scope.taskModal.show
 ]

@@ -16,6 +16,16 @@
           label
             | Description
           textarea.form-control ng-model='newTask.description' name='description' type='textarea'
+          label
+            | Type
+          select.form-control ng-model='newTask.label' name='label'
+            option ng-repeat='label in labels' value='{{ label }}' ng-selected='{{ label == "Bug" }}'
+              | {{label}}
+          label
+            | Points
+          select.form-control ng-model='newTask.points' name='point'
+            option ng-repeat='point in points' value='{{ point.value }}' ng-selected='{{ point.value == null }}'
+              | {{point.name}}
           .modal-footer
             button.btn.btn-primary type='submit'
               | Add
