@@ -11,6 +11,10 @@ angular.module('BestProject').config([
         templateUrl: '<%= asset_path('boards/index.slim') %>',
         controller: 'ShowBoardCtrl'
       })
+      .when('/board/:boardId/edit', {
+        templateUrl: '<%= asset_path('boards/edit.slim') %>',
+        controller: 'EditBoardCtrl'
+      })
       .when('/tasks', {
         templateUrl: '<%= asset_path('tasks/index.slim') %>',
         controller: 'TasksCtrl'
