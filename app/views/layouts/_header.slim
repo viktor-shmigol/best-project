@@ -9,7 +9,7 @@ nav.navbar.navbar-default bs-navbar='' role='navigation'
   ul.nav.navbar-nav.navbar-right
     li
       a
-        = current_user.email
+        = current_user.full_name
     li
       = link_to 'Edit profile', edit_user_registration_path, class: 'navbar-link'
     li.margin-right-10
