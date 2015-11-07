@@ -30,6 +30,7 @@ gem 'devise-bootstrap-views'
 gem 'active_model_serializers'
 gem 'acts_as_list'
 gem 'jquery-ui-rails'
+gem 'rolify'
 
 group :production do
   gem 'rails_12factor'
