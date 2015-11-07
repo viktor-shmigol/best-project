@@ -5,15 +5,15 @@ angular.module('BestProject').config([
     $routeProvider
       .when('/', {
         templateUrl: '<%= asset_path('home/index.slim') %>',
-        controller: HomeCtrl
+        controller: 'HomeCtrl'
       })
-      .when('/boards/:boardId', {
+      .when('/board/:boardId', {
         templateUrl: '<%= asset_path('boards/index.slim') %>',
-        controller: BoardsCtrl
+        controller: 'ShowBoardCtrl'
       })
       .when('/tasks', {
         templateUrl: '<%= asset_path('tasks/index.slim') %>',
-        controller: TasksCtrl
+        controller: 'TasksCtrl'
       })
       .otherwise({ redirectTo: '#/' });
   }

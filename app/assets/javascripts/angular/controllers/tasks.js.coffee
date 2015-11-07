@@ -1,4 +1,4 @@
-@TasksCtrl = ['$scope', 'Task', '$routeParams', ($scope, Task, $routeParams) ->
+bestProject.controller 'TasksCtrl', ['$scope', 'Task', '$routeParams', ($scope, Task, $routeParams) ->
   $scope.boardId = $routeParams.boardId
 
   $scope.labels = ['Bug', 'Feature']

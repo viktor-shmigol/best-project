@@ -1,4 +1,4 @@
-@ListsCtrl = ['$scope', 'List', 'Task', 'taskDecorator', '$routeParams', '$filter',
+bestProject.controller 'ListsCtrl', ['$scope', 'List', 'Task', 'taskDecorator', '$routeParams', '$filter',
   ($scope, List, Task, taskDecorator, $routeParams, $filter) ->
     taskDecorator($scope)
 

@@ -1,4 +1,4 @@
-app = angular.module 'BestProject', [
+@bestProject = angular.module 'BestProject', [
   'ngRoute'
   'ngResource'
   'ngAnimate'
@@ -10,10 +10,6 @@ app = angular.module 'BestProject', [
   'angular-loading-bar'
 ]
 
-app.config ['$controllerProvider', ($controllerProvider) ->
-  $controllerProvider.allowGlobals()
-]
-
-app.config ['cfpLoadingBarProvider', (cfpLoadingBarProvider) ->
+bestProject.config ['cfpLoadingBarProvider', (cfpLoadingBarProvider) ->
     cfpLoadingBarProvider.latencyThreshold = 10
 ]

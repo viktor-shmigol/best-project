@@ -1,4 +1,4 @@
-@HomeCtrl = ['$scope', 'Board', ($scope, Board) ->
+bestProject.controller 'HomeCtrl', ['$scope', 'Board', ($scope, Board) ->
 
   $scope.boards = Board.query()
 ]

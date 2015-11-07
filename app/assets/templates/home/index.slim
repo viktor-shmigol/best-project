@@ -1,8 +1,8 @@
 h1
   | My boards
-div ng-controller='BoardsCtrl'
+div ng-controller='NewBoardCtrl'
   ng-include src='"#{asset_path('boards/new.slim')}"'
   ul.board-list
     li ng-repeat='board in boards'
-      a href='#/boards/{{board.id}}'
+      a href='#/board/{{board.id}}'
         | {{ board.name }}
