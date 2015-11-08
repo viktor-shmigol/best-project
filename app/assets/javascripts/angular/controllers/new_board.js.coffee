@@ -9,7 +9,7 @@ bestProject.controller 'NewBoardCtrl', ['$scope', 'Board', ($scope, Board) ->
     )
 
   $scope.delete = (board_id, index) ->
-    if confirm('Впевнений?')
+    if confirm('Are you sure?')
       Board.delete
         id: board_id
       , (success) ->

@@ -25,12 +25,18 @@ bestProject.controller 'ListsCtrl', ['$scope', 'List', 'Task', 'taskDecorator', 
       )
 
     $scope.delete = (list_id, index) ->
-      if confirm('Впевнений?')
+      if confirm('Are you sure?')
         List.delete
           id: list_id
         , (success) ->
           $scope.lists.splice(index,1)
           return
+
+    $scope.update = (list, data) ->
+      if data is ''
+        return "Can't be blank"
+      else
+        List.update(id: list.id, list: { name: data })
 
     $scope.newTask = {
       board_id: $scope.boardId

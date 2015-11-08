@@ -20,6 +20,14 @@ class BoardsController < ApplicationController
     render json: @board.to_json, status: :ok
   end
 
+  def update
+    if @board.update(board_params)
+      render json: @board, status: 201
+    else
+      render json: {status: :error, error: @board.errors.messages}, status: 422
+    end
+  end
+
   def destroy
     @board.destroy
     head(200)

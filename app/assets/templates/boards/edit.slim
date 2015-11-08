@@ -1,1 +1,21 @@
-| Edit board
+a href="#/board/{{board.id}}" class="btn btn-success"
+  | Back
+h1 Settings
+table
+  tr
+    th
+      | Title
+    th
+  tr
+    td
+      a href="javascript:void(false);" editable-text="board.name" onbeforesave="update($data)"
+        | {{ board.name }}
+h2 Members
+ul.board-list
+  li ng-repeat='member in members'
+    a href='javascript:void(false);'
+      | {{ member.full_name }}
+  li
+    a href='javascript:void(false);'
+      span.glyphicon.glyphicon-plus-sign
+        | Add

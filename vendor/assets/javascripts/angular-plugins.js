@@ -5,3 +5,4 @@
 //= require angularjs/date
 //= require angularjs/select2
 //= require angularjs/loading-bar.min
+//= require angularjs/xeditable.min

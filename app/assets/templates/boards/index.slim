@@ -2,12 +2,16 @@
   .col-lg-12
     h2
       | {{ board.name }}
+    .pull-right
+      a href="#/board/{{board.id}}/edit" class="btn btn-success"
+        | Settings
 .row.board-container ng-controller='ListsCtrl'
   .col-lg-12.list-sortable  ui-sortable="listSortableOptions"
     .list-container ng-repeat='list in lists | orderBy: "position"' id='list_{{list.id}}'
       .list-body
         .list-header
-          | {{ list.name }}
+          a href="javascript:void(false);" editable-text="list.name" onbeforesave="update(list, $data)"
+            | {{ list.name }}
           span.pull-right.glyphicon.glyphicon-trash ng-click='delete(list.id, $index)'
         .task-list id='{{list.id}}' ui-sortable="taskSortableOptions"
           .task ng-repeat='task in tasks[list.id] | orderBy: "position"' id='task_{{task.id}}' ng-click='taskModalShow("#{asset_path("tasks/show.slim")}", task)'
