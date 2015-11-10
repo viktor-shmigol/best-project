@@ -35,7 +35,7 @@ class ListsController < ApplicationController
   end
 
   def list
-    @list = List.new
+    @list ||= List.new
   end
 
   def list_params

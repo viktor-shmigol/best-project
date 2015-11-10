@@ -1,8 +1,9 @@
 FactoryGirl.define do
   factory :list do
-    name "MyString"
-board_id "MyString"
-integer "MyString"
-  end
+    name { Faker::Name.name }
 
+    after(:create) do |list|
+      list.group = FactoryGirl.create(:board)
+    end
+  end
 end

@@ -4,6 +4,8 @@ class Task < ActiveRecord::Base
 
   acts_as_list scope: :list, add_new_at: :bottom
 
+  validates :title, presence: true
+
   scope :by_board, -> (id) { where(board_id: id) if id }
 
   def target_position=(value)

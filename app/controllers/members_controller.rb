@@ -29,7 +29,7 @@ class MembersController < ApplicationController
   end
 
   def user_board
-    @user_board = UserBoard.new
+    @user_board ||= UserBoard.new
   end
 
   def user_board_params

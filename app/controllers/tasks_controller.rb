@@ -35,7 +35,7 @@ class TasksController < ApplicationController
   end
 
   def task
-    @task = Task.new
+    @task ||= Task.new
   end
 
   def task_params

@@ -1,13 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe BoardsController, type: :controller do
+  login_user
+
+  let!(:user_board) { FactoryGirl.create(:user_board) }
   let!(:board) { FactoryGirl.create(:board) }
   let(:board_attributes) { FactoryGirl.attributes_for(:board) }
   let(:unvalid_board_attributes) { FactoryGirl.attributes_for(:board, name:'')}
-
-  before do
-    controller.stub(:authenticate_user!) { true }
-  end
 
   describe "#index" do
     it 'returns a successful 200 response' do
