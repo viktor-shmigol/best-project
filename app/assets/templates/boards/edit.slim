@@ -9,13 +9,34 @@ table
   tr
     td
       a href="javascript:void(false);" editable-text="board.name" onbeforesave="update($data)"
-        | {{ board.name }}
+        | {{board.name}}
 h2 Members
-ul.board-list
+ul.board-list ng-controller='MembersCtrl'
   li ng-repeat='member in members'
     a href='javascript:void(false);'
-      | {{ member.full_name }}
-  li
+      | Full name: {{member.full_name}}
+      p
+        | Initials: {{member.initials}}
+      p
+        | Role: {{member.role}}
+  li ng-click='isFormShow = true' ng-hide='isFormShow'
     a href='javascript:void(false);'
       span.glyphicon.glyphicon-plus-sign
         | Add
+  li ng-show='isFormShow'
+    a href='javascript:void(false);'
+      .form-group
+        label Find or invite to 'best-project'
+        select data-placeholder="Find member" ng-model="newMember.user_id"
+          option value=""
+          option ng-repeat="member in members" value="{{member.id}}"
+            | {{member.email}}
+      .row
+        .col-md-12
+          .pull-right
+            button.btn.btn-success ng-click='isFormShow = false' ng-show='newMember.user_id'
+              | Invite
+            button.btn.btn-danger ng-click='isFormShow = false'
+              | Close
+
+            / input.form-control placeholder='e.g. user@example.com' type='email'

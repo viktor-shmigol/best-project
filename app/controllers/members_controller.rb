@@ -1,10 +1,16 @@
-class UserBoardsController < ApplicationController
+class MembersController < ApplicationController
   before_action :user_board, only: :create
   before_action :find_user_board, only: :destroy
 
+  def index
+    render json: ActiveModel::ArraySerializer.new(Board.find(params[:board_id]).members,
+                                                  each_serializer: MemberSerializer,
+                                                  scope: {board_id: params[:board_id]}), status: 200
+  end
+
   def create
     if @user_board.update(user_board_params)
-      current_user.add_role role.to_sym, user_board.board
+      current_user.add_role(role.to_sym, @user_board.board)
       render json: @board, status: 200
     else
       render json: { status: :error, error: @board.errors.messages }, status: 422

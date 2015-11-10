@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def initials
+    full_name.scan(/\b[a-z]/i).join.upcase
+  end
 end

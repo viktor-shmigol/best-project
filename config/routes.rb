@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :tasks
     resources :boards
     resources :lists
-    resources :user_boards, only: [:create, :delete]
+    resources :users
+    resources :members
   end
 end

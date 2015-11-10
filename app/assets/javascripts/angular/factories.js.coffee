@@ -10,6 +10,10 @@ angular.module('BestProject').factory 'List', ['$resource', ($resource) ->
   $resource('/lists/:id', {id: '@id'}, {update: {method: 'PUT'}})
 ]
 
-angular.module('BestProject').factory 'BoardMember', ['$resource', ($resource) ->
-  $resource('/user_boards/:id', {id: '@id'}, {update: {method: 'PUT'}})
+angular.module('BestProject').factory 'Member', ['$resource', ($resource) ->
+  $resource('/members/:id', {id: '@id'}, {update: {method: 'PUT'}})
+]
+
+angular.module('BestProject').factory 'User', ['$resource', ($resource) ->
+  $resource('/users/:id', {id: '@id'}, {update: {method: 'PUT'}})
 ]

@@ -9,7 +9,7 @@ class BoardsController < ApplicationController
   def create
     if @board.update(board_params)
       current_user.boards << @board
-      current_user.add_role :owner, @board
+      current_user.add_role(:admin, @board)
       render json: @board, status: 200
     else
       render json: { status: :error, error: @board.errors.messages }, status: 422
