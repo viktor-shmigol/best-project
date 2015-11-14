@@ -27,10 +27,9 @@ ul.board-list ng-controller='MembersCtrl'
     a href='javascript:void(false);'
       .form-group
         label Find or invite to 'best-project'
-        select data-placeholder="Find member" ng-model="newMember.user_id"
-          option value=""
-          option ng-repeat="member in members" value="{{member.id}}"
-            | {{member.email}}
+        select data-placeholder="Find member" ng-model="newMember.user_id" select2=''
+          option ng-repeat="user in users" value="{{user.id}}"
+            | {{user.email}}
       .row
         .col-md-12
           .pull-right

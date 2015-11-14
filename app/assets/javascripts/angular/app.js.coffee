@@ -12,7 +12,7 @@
 ]
 
 bestProject.config ['cfpLoadingBarProvider', (cfpLoadingBarProvider) ->
-    cfpLoadingBarProvider.latencyThreshold = 10
+  cfpLoadingBarProvider.latencyThreshold = 10
 ]
 
 bestProject.run ['editableOptions', (editableOptions) ->

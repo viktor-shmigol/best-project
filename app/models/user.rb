@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  scope :without_user, -> (id) { where.not(id: id) if id }
+
   def full_name
     "#{first_name} #{last_name}"
   end
