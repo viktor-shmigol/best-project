@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
   def index
-    render json: User.without_user(current_user.id)
+    render json: User.by_full_name(params[:term], current_user.id)
   end
 end

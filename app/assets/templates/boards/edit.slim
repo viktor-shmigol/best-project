@@ -14,6 +14,7 @@ h2 Members
 ul.board-list ng-controller='MembersCtrl'
   li ng-repeat='member in members'
     a href='javascript:void(false);'
+      span.pull-right.glyphicon.glyphicon-trash ng-click='delete(member.id, $index)'
       | Full name: {{member.full_name}}
       p
         | Initials: {{member.initials}}
@@ -26,16 +27,15 @@ ul.board-list ng-controller='MembersCtrl'
   li ng-show='isFormShow'
     a href='javascript:void(false);'
       .form-group
-        label Find or invite to 'best-project'
-        select data-placeholder="Find member" ng-model="newMember.user_id" select2=''
-          option ng-repeat="user in users" value="{{user.id}}"
-            | {{user.email}}
+        select data-placeholder="Find member" ng-model="newMember.user_id" ajax-select='/users'
+      .form-group ng-show='newMember.user_id'
+        select data-placeholder="Choose role for member" ng-model="newMember.role" select2=''
+          option ng-repeat='role in roleTypes' ng-value='role.value'
+            | {{role.name}}
       .row
         .col-md-12
           .pull-right
-            button.btn.btn-success ng-click='isFormShow = false' ng-show='newMember.user_id'
+            button.btn.btn-success ng-click='invite();' ng-show='newMember.user_id && newMember.role'
               | Invite
             button.btn.btn-danger ng-click='isFormShow = false'
               | Close
-
-            / input.form-control placeholder='e.g. user@example.com' type='email'

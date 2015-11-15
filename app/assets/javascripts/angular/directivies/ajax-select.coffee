@@ -1,12 +1,12 @@
-bestProject.directive "select2", ->
+bestProject.directive "ajaxSelect", ->
   (scope, element, attrs) ->
     element.select2
       minimumInputLength: 3
       triggerChange: true
       ajax:
-        url: '/users'
+        url: attrs.ajaxSelect
         dataType: 'json'
         data: (term) ->
-          { q: term }
-        results: (data) ->
-          { results: data['data'] }
+          term
+        processResults: (data) ->
+          results: data

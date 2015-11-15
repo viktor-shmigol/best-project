@@ -8,6 +8,14 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   scope :without_user, -> (id) { where.not(id: id) if id }
+  scope :by_full_name, -> (query, user_id) {
+    if query
+      where("lower(concat(first_name, ' ', last_name)) LIKE ?", "%#{query.downcase}%")
+      .without_user(user_id)
+      .limit(10)
+      .collect{ |user| { id: user.id, text: user.full_name } }
+    end
+  }
 
   def full_name
     "#{first_name} #{last_name}"

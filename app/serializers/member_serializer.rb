@@ -6,7 +6,7 @@ class MemberSerializer < ActiveModel::Serializer
   end
 
   def role
-    @board ||= Board.find(scope[:board_id])
+    @board ||= Board.find(serialization_options[:board_id] || scope[:board_id])
     object.has_role?(:admin, @board) ? 'admin' : 'member'
   end
 

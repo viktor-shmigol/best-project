@@ -1,4 +1,4 @@
-bestProject.controller 'EditBoardCtrl', ['$scope', 'Board', '$routeParams', ($scope, Board, $routeParams) ->
+bestProject.controller 'EditBoardCtrl', ['$scope', 'Board','Member', '$routeParams', ($scope, Board, Member, $routeParams) ->
   $scope.boardId = $routeParams.boardId
   $scope.board = Board.get(id: $scope.boardId)
 

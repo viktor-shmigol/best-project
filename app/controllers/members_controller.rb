@@ -10,8 +10,8 @@ class MembersController < ApplicationController
 
   def create
     if @user_board.update(user_board_params)
-      current_user.add_role(role.to_sym, @user_board.board)
-      render json: @board, status: 200
+      @user_board.user.add_role(user_board_params[:role].to_sym, @user_board.board)
+      render json: MemberSerializer.new(@user_board.user), board_id: @user_board.board_id, status: 200
     else
       render json: { status: :error, error: @board.errors.messages }, status: 422
     end
@@ -25,7 +25,7 @@ class MembersController < ApplicationController
   private
 
   def find_user_board
-    @user_board = UserBoard.find(params[:id])
+    @user_board = UserBoard.find_by(user_id: params[:id], board_id: params[:board_id])
   end
 
   def user_board

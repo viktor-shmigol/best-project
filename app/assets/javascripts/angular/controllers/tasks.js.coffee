@@ -27,7 +27,7 @@ bestProject.controller 'TasksCtrl', ['$scope', 'Task', '$routeParams', ($scope, 
     )
 
   $scope.delete = (taskId, index, listId) ->
-    if confirm('Впевнений?')
+    if confirm('Are you sure?')
       Task.delete
         id: taskId
       , (success) ->
