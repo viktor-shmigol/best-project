@@ -9,6 +9,7 @@
   'ui.select2'
   'angular-loading-bar'
   'xeditable'
+  'Devise'
 ]
 
 bestProject.config ['cfpLoadingBarProvider', (cfpLoadingBarProvider) ->

@@ -1,4 +1,4 @@
-angular.module('BestProject').factory 'taskDecorator', [ 'Task', '$modal', (Task, $modal) ->
+bestProject.factory 'taskDecorator', [ 'Task', '$modal', (Task, $modal) ->
   ($scope) ->
 
     $scope.taskSortableOptions =

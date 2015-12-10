@@ -8,8 +8,7 @@ table
     th
   tr
     td
-      a href="javascript:void(false);" editable-text="board.name" onbeforesave="update($data)"
-        | {{board.name}}
+      a href="javascript:void(false);" editable-text="board.name" onbeforesave="update($data)" ng-bind='board.name'
 h2 Members
 ul.board-list ng-controller='MembersCtrl'
   li ng-repeat='member in members'
@@ -30,8 +29,7 @@ ul.board-list ng-controller='MembersCtrl'
         select data-placeholder="Find member" ng-model="newMember.user_id" ajax-select='/users'
       .form-group ng-show='newMember.user_id'
         select data-placeholder="Choose role for member" ng-model="newMember.role" select2=''
-          option ng-repeat='role in roleTypes' ng-value='role.value'
-            | {{role.name}}
+          option ng-repeat='role in roleTypes' ng-value='role.value' ng-bind='role.name'
       .row
         .col-md-12
           .pull-right

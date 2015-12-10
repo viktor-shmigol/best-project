@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-ruby '2.2.2'
+ruby '2.2.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.5'
 
 gem 'mysql2'
 # Use SCSS for stylesheets
@@ -31,6 +31,10 @@ gem 'active_model_serializers'
 gem 'acts_as_list'
 gem 'jquery-ui-rails'
 gem 'rolify'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-angular-devise'
+end
 
 group :production do
   gem 'rails_12factor'

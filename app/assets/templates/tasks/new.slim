@@ -1,4 +1,4 @@
-.modal role='dialog' tabindex='-1' ng-controller='TasksCtrl'
+.modal.task-modal role='dialog' tabindex='-1' ng-controller='TasksCtrl'
   .modal-dialog
     .modal-content
       .modal-header
@@ -19,8 +19,8 @@
           label
             | Type
           select.form-control ng-model='newTask.label' name='label'
-            option ng-repeat='label in labels' value='{{ label }}' ng-selected='{{ label == "Bug" }}'
-              | {{label}}
+            option ng-repeat='label in labels' value='{{ label.value }}' ng-selected='{{ label.value == "bug" }}'
+              | {{label.name}}
           label
             | Points
           select.form-control ng-model='newTask.points' name='point'

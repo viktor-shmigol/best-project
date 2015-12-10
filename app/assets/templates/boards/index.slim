@@ -1,7 +1,6 @@
 .row
   .col-lg-12
-    h2
-      | {{ board.name }}
+    h2 ng-bind='board.name'
     .pull-right
       a href="#/board/{{board.id}}/edit" class="btn btn-success"
         | Settings
@@ -10,12 +9,10 @@
     .list-container ng-repeat='list in lists | orderBy: "position"' id='list_{{list.id}}'
       .list-body
         .list-header
-          a href="javascript:void(false);" editable-text="list.name" onbeforesave="update(list, $data)"
-            | {{ list.name }}
+          a href="javascript:void(false);" editable-text="list.name" onbeforesave="update(list, $data)" ng-bind='list.name'
           span.pull-right.glyphicon.glyphicon-trash ng-click='delete(list.id, $index)'
         .task-list id='{{list.id}}' ui-sortable="taskSortableOptions"
-          .task ng-repeat='task in tasks[list.id] | orderBy: "position"' id='task_{{task.id}}' ng-click='taskModalShow("#{asset_path("tasks/show.slim")}", task)'
-            | {{task.title}}
+          .task ng-repeat='task in tasks[list.id] | orderBy: "position"' id='task_{{task.id}}' ng-click='taskModalShow("#{asset_path("tasks/edit.slim")}", task)' ng-bind='task.title'
       button.btn.btn-success ng-click='taskModalShow("#{asset_path('tasks/new.slim')}", list);'
         | Add new task
     button.btn.btn-success bs-modal='aside' data-animation='am-fade-and-scale' data-container='body' data-placement='left' data-template='#{asset_path('lists/new.slim')}' type='button'

@@ -4,5 +4,4 @@ div ng-controller='NewBoardCtrl'
   ng-include src='"#{asset_path('boards/new.slim')}"'
   ul.board-list
     li ng-repeat='board in boards'
-      a href='#/board/{{board.id}}'
-        | {{ board.name }}
+      a href='#/board/{{board.id}}' ng-bind='board.name'

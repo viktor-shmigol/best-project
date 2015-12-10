@@ -1,0 +1,23 @@
+.modal.task-modal role='dialog' tabindex='-1' ng-controller='EditTasksCtrl'
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close ng-click='$hide()' type='button'  &times;
+        h4
+          a href="javascript:void(false);" editable-text="task.title" onaftersave="update(task, $data)" ng-bind='task.title'
+      .modal-body
+        .row
+          .col-lg-9
+            label
+              | Description
+            a href="javascript:void(false);" editable-textarea="task.description" onaftersave="update(task, $data)" ng-bind='task.description || "empty"'
+          .col-lg-3
+            label
+              | Label
+            a href="javascript:void(false);" editable-select="task.label" e-ng-options="s.value as s.name for s in labels" onaftersave="update(task, $data)" ng-bind='task.label || "empty"'
+            label
+              | Points
+            a href="javascript:void(false);" editable-select="task.points" e-ng-options="s.value as s.name for s in points" onaftersave="update(task, $data)" ng-bind='task.points || "empty"'
+            label
+              | Due date
+            a href="javascript:void(false);" editable-bsdate="task.due_date" e-datepicker-popup="dd-MMMM-yyyy" onaftersave="update(task, $data)" ng-bind='task.due_date | date:"dd/MM/yyyy" || "empty"'
