@@ -5,7 +5,7 @@ class MembersController < ApplicationController
   def index
     render json: ActiveModel::ArraySerializer.new(Board.find(params[:board_id]).members,
                                                   each_serializer: MemberSerializer,
-                                                  scope: {board_id: params[:board_id]}), status: 200
+                                                  scope: { board_id: params[:board_id] }), status: 200
   end
 
   def create

@@ -1,0 +1,58 @@
+bestProject.config(['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) ->
+  auth = ->
+    return auth: ['$q','Auth', ($q, Auth) ->
+      userInfo = Auth.getUserInfo()
+      if userInfo
+        $q.when userInfo
+      else
+        $q.reject authenticated: false
+    ]
+
+  $routeProvider
+    .when '/home',
+      templateUrl: '<%= asset_path('home/index.slim') %>'
+      controller: 'HomeCtrl'
+      resolve: auth()
+
+    .when '/board/:boardId',
+      templateUrl: '<%= asset_path('boards/index.slim') %>'
+      controller: 'ShowBoardCtrl'
+      resolve: auth()
+
+    .when '/board/:boardId/edit',
+      templateUrl: '<%= asset_path('boards/edit.slim') %>'
+      controller: 'EditBoardCtrl'
+      resolve: auth()
+
+    .when '/tasks',
+      templateUrl: '<%= asset_path('tasks/index.slim') %>'
+      controller: 'TasksCtrl'
+      resolve: auth()
+
+    .when '/user/edit',
+      templateUrl: '<%= asset_path('users/edit.slim') %>'
+      controller: 'UserEditCtrl'
+      resolve: auth()
+
+    .when '/sign_up',
+      templateUrl: '<%= asset_path('users/sign_up.slim') %>'
+      controller: 'SignUpCtrl'
+
+    .when '/sign_in',
+      templateUrl: '<%= asset_path('users/sign_in.slim') %>'
+      controller: 'SignInCtrl'
+
+    .when '/change_password',
+      templateUrl: '<%= asset_path('users/change_password.slim') %>'
+      controller: 'ChangePasswordCtrl'
+
+    .otherwise
+      redirectTo: '/home'
+
+  $locationProvider.html5Mode
+    enabled: true
+    requireBase: false
+
+]).config ['$httpProvider', ($httpProvider) ->
+  $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr 'content'
+]

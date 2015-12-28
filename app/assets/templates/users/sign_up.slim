@@ -1,0 +1,29 @@
+.container
+  .row.centered-form
+    .col-xs-12.col-sm-8.col-md-4.col-sm-offset-2.col-md-offset-4
+      .panel.panel-default
+        .panel-heading
+          h3.panel-title
+            | Please sign up for BestProject 
+            small It's free!
+        .panel-body
+          form role='form' ng-submit='signUp()'
+            .row
+              .col-xs-6.col-sm-6.col-md-6
+                .form-group
+                  input#first_name.form-control.input-sm.floatlabel ng-model='registrationForm.first_name' placeholder='First Name' type='text' required=''
+              .col-xs-6.col-sm-6.col-md-6
+                .form-group
+                  input#last_name.form-control.input-sm ng-model='registrationForm.last_name' placeholder='Last Name' type='text' required=''
+            .form-group
+              input#email.form-control.input-sm ng-model='registrationForm.email' placeholder='Email Address' type='email'  required=''
+            .row
+              .col-xs-6.col-sm-6.col-md-6
+                .form-group
+                  input ng-model="registrationForm.password" id="password" name="password" type="password" placeholder='Password' pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Password is too short (minimum is 8 characters)' : ''); if(this.checkValidity()) form.password_confirmation.pattern = this.value;" required=''
+              .col-xs-6.col-sm-6.col-md-6
+                .form-group
+                  input#password_confirmation ng-model="registrationForm.password_confirmation" type="password" pattern="^\S{6,}$" placeholder='Confirm Password' onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Password confirmation doesn\'t match Password' : '');"
+            input.btn.btn-info.btn-block type='submit' value='Sign up'
+            a.btn.btn-primary.btn-block href='/sign_in' Sign in
+            / a.btn.btn-warning.btn-block href='/change_password' Forgot your password?

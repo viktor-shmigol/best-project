@@ -1,16 +1,15 @@
-nav.navbar.navbar-default bs-navbar='' role='navigation'
+nav.navbar.navbar-default bs-navbar='' role='navigation' ng-show='currentUser'
   .navbar-header
-    a.navbar-brand href='/#/'
+    a.navbar-brand href='/'
       | Best project
   ul.nav.navbar-nav
     li  data-match-route='/$'
-      a href='/#/'
+      a href='/'
         | Home
   ul.nav.navbar-nav.navbar-right
     li
-      a
-        = current_user.full_name
+      a ng-bind='currentUser.full_name'
     li
-      = link_to 'Edit profile', edit_user_registration_path, class: 'navbar-link'
+      a href='user/edit' Edit profile
     li.margin-right-10
-      = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'navbar-link'
+      a.navbar-link href='javascript:void(false);' ng-click='logout()' Sign out

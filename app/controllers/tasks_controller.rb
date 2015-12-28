@@ -24,7 +24,7 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       render json: TaskSerializer.new(@task), status: 201
     else
-      render json: {status: :error, error: @task.errors.messages}, status: 422
+      render json: { status: :error, error: @task.errors.messages }, status: 422
     end
   end
 

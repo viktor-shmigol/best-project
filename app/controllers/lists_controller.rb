@@ -24,7 +24,7 @@ class ListsController < ApplicationController
     if @list.update(list_params)
       render json: @list, status: 201
     else
-      render json: {status: :error, error: @list.errors.messages}, status: 422
+      render json: { status: :error, error: @list.errors.messages }, status: 422
     end
   end
 

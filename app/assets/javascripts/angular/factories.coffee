@@ -17,3 +17,7 @@ bestProject.factory 'Member', ['$resource', ($resource) ->
 bestProject.factory 'User', ['$resource', ($resource) ->
   $resource('/users/:id', {id: '@id'}, {update: {method: 'PUT'}})
 ]
+
+bestProject.factory 'Session', ['$resource', ($resource) ->
+  $resource('/sessions/:id', {id: '@id'}, {})
+]

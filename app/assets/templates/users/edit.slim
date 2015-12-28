@@ -1,0 +1,22 @@
+.container
+  .row.centered-form
+    h1 Edit profile
+    form role='form' ng-submit='update()'
+      .row
+        .col-xs-6.col-sm-6.col-md-6
+          .form-group
+            input#first_name.form-control.input-sm.floatlabel ng-model='user.first_name' placeholder='First Name' type='text' required=''
+        .col-xs-6.col-sm-6.col-md-6
+          .form-group
+            input#last_name.form-control.input-sm ng-model='user.last_name' placeholder='Last Name' type='text' required=''
+      .row
+        .col-xs-6.col-sm-6.col-md-6
+          .form-group
+            input#email.form-control.input-sm ng-model='user.email' placeholder='Email Address' type='email'  required=''
+        .col-xs-3.col-sm-3.col-md-3
+          .form-group
+            input.form-control.input-sm.floatlabel ng-model="user.password" id="password" name="password" type="password" placeholder='Password' pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Password is too short (minimum is 8 characters)' : ''); if(this.checkValidity()) form.password_confirmation.pattern = this.value;" required=''
+        .col-xs-3.col-sm-3.col-md-3
+          .form-group
+            input#password_confirmation.form-control.input-sm.floatlabel ng-model="user.password_confirmation" type="password" pattern="^\S{6,}$" placeholder='Confirm Password' onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Password confirmation doesn\'t match Password' : '');"
+      button.btn.btn-info.btn-block type='submit' Save

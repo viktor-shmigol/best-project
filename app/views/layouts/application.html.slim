@@ -1,5 +1,5 @@
 doctype html
-html
+html ng-app='BestProject'
   head
     title BestProject
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
@@ -7,3 +7,7 @@ html
     = csrf_meta_tags
   body
     = yield
+    .container-fluid ng-controller='MainCtrl'
+      = render 'layouts/header'
+      div flash-message='5000'
+      div ng-view=""
