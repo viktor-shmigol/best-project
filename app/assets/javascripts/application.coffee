@@ -5,7 +5,7 @@
 #= require angular-route
 #= require angular-resource
 #= require angular-animate
-#= require angular-devise
+#= require angular-cookies
 #= require angular-plugins
 #= require jquery-plugins
 #= require_tree ./angular/

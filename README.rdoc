@@ -2,7 +2,7 @@ BestProject is a collaboration tool that organizes your projects into boards.
 
 Get started:
 
-ruby 2.2.3
+ruby 2.3.0
 rails 4.2.5
 
 rake db:create

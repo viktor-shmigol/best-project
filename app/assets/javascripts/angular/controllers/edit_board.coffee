@@ -6,5 +6,5 @@ bestProject.controller 'EditBoardCtrl', ['$scope', 'Board','Member', '$routePara
     if data is ''
       return "Can't be blank"
     else
-      Board.update(id: $scope.boardId, board: { name: data })
+      Board.update(id: $scope.board.slug, board: { name: data })
 ]

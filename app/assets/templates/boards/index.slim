@@ -2,7 +2,7 @@
   .col-lg-12
     h2 ng-bind='board.name'
     .pull-right
-      a href="#/board/{{board.id}}/edit" class="btn btn-success"
+      a href="/board/{{board.slug}}/edit" class="btn btn-success"
         | Settings
 .row.board-container ng-controller='ListsCtrl'
   .col-lg-12.list-sortable  ui-sortable="listSortableOptions"

@@ -1,9 +1,10 @@
 class TasksController < ApplicationController
+  before_action :find_board, only: [:create, :index]
   before_action :find_task, only: [:update, :destroy]
   before_action :task, only: :create
 
   def index
-    render json: ActiveModel::ArraySerializer.new(Task.by_board(params[:board_id]),
+    render json: ActiveModel::ArraySerializer.new(@board.tasks,
                                                   each_serializer: TaskSerializer), status: 200
   end
 
@@ -24,7 +25,7 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       render json: TaskSerializer.new(@task), status: 201
     else
-      render json: {status: :error, error: @task.errors.messages}, status: 422
+      render json: { status: :error, error: @task.errors.messages }, status: 422
     end
   end
 
@@ -34,11 +35,15 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
 
+  def find_board
+    @board = Board.find(params[:board_id])
+  end
+
   def task
-    @task ||= Task.new
+    @task ||= @board.tasks.new
   end
 
   def task_params
-    params.require(:task).permit!
+    params.require(:task).permit(:title, :due_date, :list_id, :description, :status, :position, :label, :points)
   end
 end

@@ -1,5 +1,7 @@
 class Board < ActiveRecord::Base
+  extend FriendlyId
   resourcify
+  friendly_id :name, use: [:slugged, :finders]
 
   has_many :user_boards
   has_many :tasks

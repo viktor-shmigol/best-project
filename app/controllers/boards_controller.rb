@@ -24,7 +24,7 @@ class BoardsController < ApplicationController
     if @board.update(board_params)
       render json: @board, status: 201
     else
-      render json: {status: :error, error: @board.errors.messages}, status: 422
+      render json: { status: :error, error: @board.errors.messages }, status: 422
     end
   end
 

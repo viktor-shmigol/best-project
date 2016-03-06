@@ -1,18 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
-  devise_scope :user do
-    authenticated :user do
-      root to: 'home#index'
-    end
+  root to: 'home#index'
 
-    unauthenticated :user do
-      root to: 'devise/sessions#new', as: :unauthenticated_root
-    end
+  resources :sessions, only: [:create, :destroy]
+  resources :tasks
+  resources :boards
+  resources :lists
+  resources :users
+  resources :members
 
-    resources :tasks
-    resources :boards
-    resources :lists
-    resources :users
-    resources :members
-  end
+  get '*path' => 'home#index'
 end

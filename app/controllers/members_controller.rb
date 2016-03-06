@@ -1,11 +1,12 @@
 class MembersController < ApplicationController
+  before_action :find_board
   before_action :user_board, only: :create
   before_action :find_user_board, only: :destroy
 
   def index
     render json: ActiveModel::ArraySerializer.new(Board.find(params[:board_id]).members,
                                                   each_serializer: MemberSerializer,
-                                                  scope: {board_id: params[:board_id]}), status: 200
+                                                  scope: { board_id: params[:board_id] }), status: 200
   end
 
   def create
@@ -25,14 +26,18 @@ class MembersController < ApplicationController
   private
 
   def find_user_board
-    @user_board = UserBoard.find_by(user_id: params[:id], board_id: params[:board_id])
+    @user_board = @board.user_boards.find_by(user_id: params[:id])
   end
 
   def user_board
-    @user_board ||= UserBoard.new
+    @user_board ||= @board.user_boards.new
+  end
+
+  def find_board
+    @board = Board.find(params[:board_id] || params[:user_board][:board_id])
   end
 
   def user_board_params
-    params.require(:user_board).permit(:board_id, :user_id, :role)
+    params.require(:user_board).permit(:user_id, :role)
   end
 end

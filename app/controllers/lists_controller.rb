@@ -1,9 +1,10 @@
 class ListsController < ApplicationController
+  before_action :find_board, only: [:create, :index]
   before_action :list, only: :create
   before_action :find_list, only: [:destroy, :update]
 
   def index
-    render json: ActiveModel::ArraySerializer.new(List.by_board(params[:board_id]),
+    render json: ActiveModel::ArraySerializer.new(@board.lists,
                                                   each_serializer: ListSerializer), status: 200
   end
 
@@ -24,7 +25,7 @@ class ListsController < ApplicationController
     if @list.update(list_params)
       render json: @list, status: 201
     else
-      render json: {status: :error, error: @list.errors.messages}, status: 422
+      render json: { status: :error, error: @list.errors.messages }, status: 422
     end
   end
 
@@ -34,11 +35,15 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
   end
 
+  def find_board
+    @board = Board.find(params[:board_id])
+  end
+
   def list
-    @list ||= List.new
+    @list ||= @board.lists.new
   end
 
   def list_params
-    params.require(:list).permit!
+    params.require(:list).permit(:name)
   end
 end
